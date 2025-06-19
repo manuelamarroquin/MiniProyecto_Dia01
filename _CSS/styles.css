@@ -4,20 +4,20 @@
 
 :root {
     /* Colores principales */
-    --color-primary: #2563eb;
-    --color-primary-dark: #1d4ed8;
+    --color-primary: #9524ff;
+    --color-primary-dark: #ffffff;
     --color-secondary: #64748b;
-    --color-accent: #f59e0b;
+    --color-accent: #c73aff;
 
     /* Colores de texto */
     --color-text: #1e293b;
     --color-text-light: #64748b;
-    --color-text-white: #ffffff;
+    --color-text-white: #2b2929;
 
     /* Colores de fondo */
-    --color-bg: #ffffff;
+    --color-bg: #ebcdff;
     --color-bg-light: #f8fafc;
-    --color-bg-dark: #0f172a;
+    --color-bg-dark: #bb57fd;
 
     /* Tipografia */
     --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -223,7 +223,7 @@ body{
     color: var(--color-text-white);
 }
 
-/* En movil, los botones ocupan todo el qncho disponible */
+/* En movil, los botones ocupan todo el ancho disponible */
 
 @media (max-width: 640px) {
     .hero_action {
@@ -260,7 +260,7 @@ body{
     margin-bottom: 0;
 }
 
-.placeholder-image{
+.placeholder-image {
     background-color: var(--color-bg-light);
     border: 2px dashed var(--color-secondary);
     border-radius: 12px;
@@ -270,6 +270,13 @@ body{
     justify-content: center;
     color: var(--color-text-light);
     font-weight: var(--font-weight-medium);
+}
+
+.placeholder-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
 }
 
 /*En tablets y desktop, usamos layout de dos columnas */
@@ -287,3 +294,106 @@ body{
 /* =====================================
     Sección Skills con Grid Responsive
     ==================================== */
+
+.skills {
+  background-color: var(--color-bg-light);
+  padding: var(--space-2xl) 0;
+}
+
+.skills__grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+
+/* Grid responsive que se adapta automáticamente */
+@media (min-width: 640px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skill-card {
+  background-color: var(--color-bg);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card_title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.skill-card_description {
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* ===================
+    Footer
+    ================== */
+.footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-primary-dark);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.footer_title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.footer_description {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: var(--space-xl);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer_contact {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  color: var(--color-text-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid #374151;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-dark);
+}
+
+/* En móvil, los enlaces de contacto se apilan verticalmente */
+@media (max-width: 640px) {
+  .footer_contact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-link {
+    width: 100%;
+    max-width: 250px;
+  }
+}
